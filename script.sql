@@ -103,49 +103,66 @@ ENGINE = InnoDB
 COLLATE = `utf8mb4_general_ci`;
 
 --
+-- Indexes for table `PRODUTOS`
+--
+ALTER TABLE `PRODUTOS`
+  ADD PRIMARY KEY (`CODIGO`) USING BTREE;
+
+--
+-- AUTO_INCREMENT for table `PRODUTOS`
+--
+ALTER TABLE `PRODUTOS`
+  MODIFY `CODIGO` INT(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Create Index for table `PRODUTOS`
+--
+CREATE UNIQUE INDEX IDX_COD_PRODUTO ON PRODUTOS(CODIGO) USING BTREE;
+
+--
 -- Dumping data for table `PRODUTOS`
 --
-INSERT INTO `PRODUTOS` (`CODIGO`, `DESCRICAO`, `PRECOVENDA`, `ATIVO`)
-VALUES (1, 'ARROZ DO PADRE', 10.9, 'T'),
-       (2, 'FEIJAO TURQUEZA', 5.00, 'T'),
-       (3, 'CARNE DE PORCO', 55.4, 'T'),
-       (4, 'TOMATE', 1.00, 'T'),
-       (5, 'CEBOLA', 2.26, 'T'),
-       (6, 'BOLACHA FORTALEZA', 5.20, 'T'),
-       (7, 'BISCOITO TRELOSO', 1.00, 'T'),
-       (8, 'FERMENTO DE BOLO', 1.09, 'T'),
-       (9, 'GOMA', 5.21, 'T'),
-       (10, 'PIPOCA BOKAO', 2.20, 'T'),
-       (11, 'SONHO DE VALSA', 3.29, 'T'),
-       (12, 'AMENDOAS', 20.2, 'T'),
-       (13, 'AVEIA', 14.70, 'T'),
-       (14, 'MACARRAO', 2.40, 'T'),
-       (15, 'BANANA', 5.97, 'T'),
-       (16, 'CONFEITOS ASSAY', 10.9, 'T'),
-       (17, 'CHOCOLATE EM BARRA', 8.56, 'T'),
-       (18, 'ABACAXI', 3.30, 'T'),
-       (19, 'GOIABA', 2.56, 'T'),
-       (20, 'LIMAO', 6.10, 'T'),
-       (21, 'UVA', 4.10, 'T'),
-       (22, 'AMEIXA SECA', 12.1, 'T'),
-       (23, 'FRANGO', 20.1, 'T'),
-       (24, 'CARNE BOVINA', 30.12, 'T'),
-       (25, 'CENOURA', 1.75, 'T'),
-       (26, 'COUVE MANTEIGA', 3.20, 'T'),
-       (27, 'CAMARAO', 12.99, 'T'),
-       (28, 'OVOS DE GALINHA', 12.70, 'T'),
-       (29, 'PEIXES', 40.21, 'T'),
-       (30, 'PERU/CHESTER/PERNIL', 20.71, 'T'),
-       (31, 'LEITE', 6.29, 'T'),
-       (32, 'FARINHA DE TRIGO', 10.20, 'T'),
-       (33, 'BATATA', 3.10, 'T'),
-       (34, 'ACHOCOLATADO', 12.50, 'T'),
-       (35, 'BOLO DE BRIGADEIRO', 20.55, 'T'),
-       (36, 'ADOCANTE', 5.51, 'T'),
-       (37, 'CAFÉ', 2.21, 'T'),
-       (38, 'COCADA', 1.28, 'T'),
-       (39, 'ERVILHAS', 6.89, 'T'),
-       (40, 'MILHO COZIDO', 2.15, 'T');
+INSERT INTO `PRODUTOS` (`DESCRICAO`, `PRECOVENDA`, `ATIVO`)
+VALUES ('ARROZ DO PADRE', 10.9, 'T'),
+       ('FEIJAO TURQUEZA', 5.00, 'T'),
+       ('CARNE DE PORCO', 55.4, 'T'),
+       ('TOMATE', 1.00, 'T'),
+       ('CEBOLA', 2.26, 'T'),
+       ('BOLACHA FORTALEZA', 5.20, 'T'),
+       ('BISCOITO TRELOSO', 1.00, 'T'),
+       ('FERMENTO DE BOLO', 1.09, 'T'),
+       ('GOMA', 5.21, 'T'),
+       ('PIPOCA BOKAO', 2.20, 'T'),
+       ('SONHO DE VALSA', 3.29, 'T'),
+       ('AMENDOAS', 20.2, 'T'),
+       ('AVEIA', 14.70, 'T'),
+       ('MACARRAO', 2.40, 'T'),
+       ('BANANA', 5.97, 'T'),
+       ('CONFEITOS ASSAY', 10.9, 'T'),
+       ('CHOCOLATE EM BARRA', 8.56, 'T'),
+       ('ABACAXI', 3.30, 'T'),
+       ('GOIABA', 2.56, 'T'),
+       ('LIMAO', 6.10, 'T'),
+       ('UVA', 4.10, 'T'),
+       ('AMEIXA SECA', 12.1, 'T'),
+       ('FRANGO', 20.1, 'T'),
+       ('CARNE BOVINA', 30.12, 'T'),
+       ('CENOURA', 1.75, 'T'),
+       ('COUVE MANTEIGA', 3.20, 'T'),
+       ('CAMARAO', 12.99, 'T'),
+       ('OVOS DE GALINHA', 12.70, 'T'),
+       ('PEIXES', 40.21, 'T'),
+       ('PERU/CHESTER/PERNIL', 20.71, 'T'),
+       ('LEITE', 6.29, 'T'),
+       ('FARINHA DE TRIGO', 10.20, 'T'),
+       ('BATATA', 3.10, 'T'),
+       ('ACHOCOLATADO', 12.50, 'T'),
+       ('BOLO DE BRIGADEIRO', 20.55, 'T'),
+       ('ADOCANTE', 5.51, 'T'),
+       ('CAFÉ', 2.21, 'T'),
+       ('COCADA', 1.28, 'T'),
+       ('ERVILHAS', 6.89, 'T'),
+       ('MILHO COZIDO', 2.15, 'T');
 
 --
 -- Dumping structure for table `PEDIDOS`
@@ -173,29 +190,6 @@ CREATE TABLE IF NOT EXISTS `PEDIDOSDET` (
 ENGINE = InnoDB
 COLLATE = `utf8mb4_general_ci`;
 
--- --------------------------------------------------------
-
---
--- Indexes for dumped tables
---
-
-
---
--- Indexes for table `PRODUTOS`
---
-ALTER TABLE `PRODUTOS`
-  ADD PRIMARY KEY (`CODIGO`) USING BTREE;
-
---
--- AUTO_INCREMENT for table `PRODUTOS`
---
-ALTER TABLE `PRODUTOS`
-  MODIFY `CODIGO` INT(11) NOT NULL AUTO_INCREMENT;
-
---
--- Create Index for table `PRODUTOS`
---
-CREATE UNIQUE INDEX IDX_COD_PRODUTO ON PRODUTOS(CODIGO) USING BTREE;
 
 --
 -- Indexes for table `PEDIDOS`
